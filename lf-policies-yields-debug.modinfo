@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Mod id="lf-policies-yields-debug" version="1" xmlns="ModInfo">
+	<Properties>
+		<Name>Activate all policies debugging</Name>
+		<Description></Description>
+		<Authors>leonardfactory</Authors>
+		<Package>Mod</Package>
+		<AffectsSavedGames>0</AffectsSavedGames>
+	</Properties>
+	<Dependencies>
+		<Mod id="base-standard" title="LOC_MODULE_BASE_STANDARD_NAME" />
+	</Dependencies>
+	<ActionCriteria>
+		<Criteria id="antiquity-age-current">
+			<AgeInUse>AGE_ANTIQUITY</AgeInUse>
+		</Criteria>
+		<Criteria id="exploration-age-current">
+			<AgeInUse>AGE_EXPLORATION</AgeInUse>
+		</Criteria>
+		<Criteria id="modern-age-current">
+			<AgeInUse>AGE_MODERN</AgeInUse>
+		</Criteria>
+		<Criteria id="always">
+			<AlwaysMet></AlwaysMet>
+		</Criteria>
+	</ActionCriteria>
+	<ActionGroups>
+		<ActionGroup id="game-lf-policies-debug-antiquity" scope="game" criteria="antiquity-age-current">
+			<LoadOrder>100</LoadOrder>
+			<Actions>				
+				<UpdateDatabase>
+					<Item>data/unlock_all_traditions_antiquity.sql</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="game-lf-policies-debug-exploration" scope="game" criteria="exploration-age-current">
+			<LoadOrder>100</LoadOrder>
+			<Actions>				
+				<UpdateDatabase>
+					<Item>data/unlock_all_traditions_exploration.sql</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+		<ActionGroup id="game-lf-policies-debug-modern" scope="game" criteria="modern-age-current">
+			<LoadOrder>100</LoadOrder>
+			<Actions>				
+				<UpdateDatabase>
+					<Item>data/unlock_all_traditions_modern.sql</Item>
+				</UpdateDatabase>
+			</Actions>
+		</ActionGroup>
+	</ActionGroups>
+</Mod>
